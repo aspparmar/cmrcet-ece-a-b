@@ -58,3 +58,59 @@ After all days, print a blank line, then four lines containing:
 1
 2
 `
+** solution **
+days = int(input())
+w = int(input())
+
+total_sum = 0
+bullish_count = 0
+longest_bullish_streak = 0
+current_bullish_streak = 0
+first_drop_day = -1
+drop_found = False
+
+for day in range(1, days + 1):
+    daily_sum = 0
+    first_price = None
+    last_price = None
+    prev_price = None
+    has_drop = False
+    
+    for window in range(w):
+        price = int(input())
+        daily_sum += price
+        
+        if window == 0:
+            first_price = price
+        last_price = price
+        
+        # Check for intra-day drop (price < previous within same day)
+        if window > 0 and price < prev_price and not drop_found:
+            first_drop_day = day
+            drop_found = True
+        
+        prev_price = price
+    
+    total_sum += daily_sum
+    
+    # Determine trend
+    if last_price > first_price:
+        trend = "BULLISH"
+        bullish_count += 1
+        current_bullish_streak += 1
+        if current_bullish_streak > longest_bullish_streak:
+            longest_bullish_streak = current_bullish_streak
+    elif last_price < first_price:
+        trend = "BEARISH"
+        current_bullish_streak = 0
+    else:
+        trend = "NEUTRAL"
+        # NEUTRAL does not break streak, so current_bullish_streak remains unchanged
+    
+    print(f"{daily_sum} {trend}")
+
+print()
+print(total_sum)
+print(bullish_count)
+print(longest_bullish_streak)
+print(first_drop_day)
