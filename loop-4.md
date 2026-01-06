@@ -28,3 +28,33 @@ After all days, print a blank line, then four lines containing:
 - Count of `"BULLISH"` days  
 - Longest streak of consecutive `"BULLISH"` days  
 - First day number where an intra-day price drop occurred, or `-1` if none
+
+### example : 
+ **input** :
+     '''
+3
+4
+100
+110
+120
+130
+200
+190
+185
+180
+150
+155
+160
+170
+'''
+  ** output**:
+'''
+460 BULLISH
+755 BEARISH
+635 BULLISH
+
+1850
+2
+1
+2
+'''
