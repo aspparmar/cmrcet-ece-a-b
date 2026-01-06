@@ -31,7 +31,7 @@ After all days, print a blank line, then four lines containing:
 
 ### example : 
  **input** :
-     '''
+`
 3
 4
 100
@@ -46,9 +46,9 @@ After all days, print a blank line, then four lines containing:
 155
 160
 170
-'''
+`
   ** output**:
-'''
+`
 460 BULLISH
 755 BEARISH
 635 BULLISH
@@ -57,4 +57,4 @@ After all days, print a blank line, then four lines containing:
 2
 1
 2
-'''
+`
